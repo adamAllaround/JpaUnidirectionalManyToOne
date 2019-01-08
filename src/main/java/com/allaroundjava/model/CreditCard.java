@@ -5,6 +5,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
@@ -17,12 +18,13 @@ public class CreditCard {
     private String cardNumber;
     private LocalDate expirationDate;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ACCOUNT_ID", nullable = false)
     private Account account;
 
-    private CreditCard() {
+    CreditCard() {
     }
 
-    private CreditCard(String cardNumber, LocalDate expirationDate, Account account) {
+    CreditCard(String cardNumber, LocalDate expirationDate, Account account) {
         this.cardNumber = cardNumber;
         this.expirationDate = expirationDate;
         this.account = account;

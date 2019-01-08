@@ -16,9 +16,9 @@ public class Account {
     private String accountNumber;
     private String accountOwnerName;
 
-    private Account() {}
+    Account() {}
 
-    private Account(String accountNumber, String accountOwnerName) {
+    Account(String accountNumber, String accountOwnerName) {
         this.accountNumber = accountNumber;
         this.accountOwnerName = accountOwnerName;
     }
@@ -29,5 +29,9 @@ public class Account {
 
     public String getAccountOwnerName() {
         return accountOwnerName;
+    }
+
+    public static Account newInstance(String accountNumber, String accountOwnerName) {
+        return new Account(accountNumber, accountOwnerName);
     }
 }
